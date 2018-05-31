@@ -13,45 +13,67 @@ import javax.swing.JPanel;
 
 public class myPanel extends JPanel implements ActionListener {
 
-	JLabel[] connectGrid = new JLabel[16];
-	JButton addPiece;
+	private JLabel[] connectGrid = new JLabel[43];
+	private JButton[] buttonGrid = new JButton[8];
+	private JPanel buttonPanel;
+	private JPanel gridPanel;
+	private JLabel connect;
+	private JLabel button;
+	
+	private Dimension connectDimen;
+	private Dimension gridDimen;
+	private Dimension buttonDimen;
+	private Dimension butDimen;
 	
 	myPanel()
 	{
 		this.setLayout(new BorderLayout());
 		
-		JPanel buttonPanel = new JPanel();
-		JPanel gridPanel = new JPanel();
-		JLabel connect = new JLabel();
+		connectDimen = new Dimension(800, 600);
+		buttonDimen = new Dimension(700, 70);
+		butDimen = new Dimension(700, 50);
+		gridDimen = new Dimension(700, 490);
 		
-		GridLayout columns = new GridLayout(4,4);
+		buttonPanel = new JPanel();
+		gridPanel = new JPanel();
+		connect = new JLabel();
+		button = new JLabel();
+		
+		//GridLayout columns = new GridLayout(4,4);
 
-		Dimension bGridPanel = new Dimension(100, 400);
-		Dimension cGridPanel = new Dimension(500, 100);
-		Dimension grid = new Dimension(400, 200);
-		
-		buttonPanel.setOpaque(true);
-		buttonPanel.setPreferredSize(cGridPanel);
-		buttonPanel.setBackground(Color.lightGray);
-		
 		gridPanel.setOpaque(true);
-		gridPanel.setPreferredSize(bGridPanel);
+		gridPanel.setPreferredSize(connectDimen);
 		gridPanel.setBackground(Color.darkGray);
 		
-		connect.setPreferredSize(grid);
+		buttonPanel.setOpaque(true);
+		buttonPanel.setPreferredSize(buttonDimen);
+		buttonPanel.setBackground(Color.DARK_GRAY);
+		
+		connect.setPreferredSize(gridDimen);
 		connect.setBackground(Color.white);
-		connect.setLayout(new GridLayout(4, 4, 2, 2));
+		connect.setLayout(new GridLayout(6, 7, 2, 2));
 		//Loop for the connect four grid
-		for(int i = 0; i < 42; i++) {
-			connectGrid[i] = new JLabel();
-			connectGrid[i].setBackground(Color.BLACK);
+		for(int i = 1; i < 43; i++) {
+			connectGrid[i] = new JLabel(""+i);
+			connectGrid[i].setBackground(Color.gray);
 			connectGrid[i].setOpaque(true);
 			connect.add(connectGrid[i]);
-			
 		}
 		connect.setOpaque(true);
 		
-		gridPanel.add(connect);
+		button.setPreferredSize(butDimen);
+		button.setBackground(Color.cyan);
+		button.setLayout(new GridLayout(1, 7, 2, 2));
+		for(int i = 1; i < 8; i++) {
+			buttonGrid[i] = new JButton(""+i);
+			buttonGrid[i].setBackground(Color.gray);
+			buttonGrid[i].setOpaque(true);
+			button.add(buttonGrid[i]);
+		}
+		button.setOpaque(true);
+		
+		buttonPanel.add(button, BorderLayout.CENTER);
+		gridPanel.add(connect, BorderLayout.CENTER);
 		this.add(buttonPanel, BorderLayout.NORTH);
 		this.add(gridPanel, BorderLayout.SOUTH);
 	}
