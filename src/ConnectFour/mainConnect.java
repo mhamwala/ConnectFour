@@ -9,8 +9,6 @@ import javax.swing.JFrame;
 public class mainConnect {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		 JFrame home = new JFrame("Connect Four");
 		 myPanel connectPanel = new myPanel();
 		 
