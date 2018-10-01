@@ -78,6 +78,7 @@ public class myPanel extends JPanel implements ActionListener {
 		this.add(gridPanel, BorderLayout.SOUTH);
 	}
 	
+	//Button pressed action
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
